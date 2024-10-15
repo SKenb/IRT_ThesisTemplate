@@ -1,0 +1,33 @@
+\documentclass[12pt, a4paper, twoside, openright]{report}
+
+% LaTeX-Template for Bachelor-/Master-Thesis
+% Open-Beta Version: 1.0.1.0
+%
+% 1) Adjust all defines in the tex/defines.tex
+% 2) Define your own commands in the tex/myCmd.tex
+% 3) Define your own acronyms in the tex/myAcronyms.tex
+% 4) Write your thesis
+%       - put all the chapters in the "chapters"-Folder
+%         + include them in the main.tex (\insertChapter{A0\_Introduction})
+% 
+
+\input{tex/config.tex}
+\input{tex/defines.tex}     % Adjust all defines
+\input{tex/cmd.tex}
+\input{tex/theorem.tex}
+\input{tex/myCmd.tex}       % Define your own commands
+\input{tex/myAcronyms.tex}  % Define your acronyms
+
+
+\begin{document}
+% Adjust values in ./tex/defines.tex
+\insertDocumentStart
+
+% Place your chapters in the "chapters"-Folder
+% and include them accordingly
+\insertChapter{A0\_Introduction}
+\insertChapter{B0\_Methodology}
+
+\insertDocumentEnd
+
+\end{document}

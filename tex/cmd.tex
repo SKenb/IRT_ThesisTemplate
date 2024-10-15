@@ -1,0 +1,190 @@
+% use myCmd.tex to define your own commands
+
+\newcommand{\insertTitlePage}{
+    \begin{titlepage}	
+        {\sffamily		
+            \begin{center}			
+                \includegraphics[width=30mm]{TU_Graz_Logo.png}
+                
+                \vfill\vfill\vfill
+                \vfill\vfill\vfill
+                
+                {\myNameWithTitles}
+                
+                \vfill\vfill\vfill
+                
+                {\LARGE\bfseries{\thesisTitle}}
+                % Title of the thesis			
+                
+                \vfill\vfill\vfill
+                \vfill\vfill\vfill			
+                
+                \ifthenelse{\equal{\thesisType}{master}}{ 
+                    % Master
+                    {\bfseries\large{Master's Thesis}}
+                    
+                    to achieve the university degree of
+                    
+                    {Master of Science}
+                    
+                    {Master's degree programme: {\myStudies}}
+                }{
+                    % Bachelor
+                    {\bfseries\large{Bachelor's Thesis}}
+
+                    to achieve the university degree of
+                    
+                    {Bachelor of Science}
+                    
+                    {Bachelor's degree programme: {\myStudies}}
+                }
+     
+                            
+                \vfill\vfill\vfill			
+                
+                submitted to
+                
+                \vfill
+                
+                {\bfseries\large{Graz University of Technology}}			
+                
+                \vfill\vfill\vfill			
+                
+                Supervisor
+                
+                {\mySupervisor}
+                
+                \vfill
+                
+                {Institute of Automation and Control}\\
+                Head: {Univ.-Prof.\,Dipl-Ing.\,Dr.techn.~Markus Reichhartinger}\\
+                
+                \vfill
+                
+                \includegraphics[width=20mm]{IRT_Logo.png}
+                
+                %% OPTIONAL: second supervisor/name of the faculty, etc.
+                        
+                \vfill\vfill\vfill
+                        
+                {Graz}, {March}~{2025}
+                
+            \end{center}
+        }%% end sffamily
+    \end{titlepage}
+}
+
+\newcommand{\insertListOfAcronyms}{
+    \printacronyms[name=List of Acronyms]
+}
+
+\newcommand{\insertAbstract}{
+    % Kurzfassung
+    \cleardoublepage
+    \setcounter{page}{2}
+    \vspace*{2.2 cm}
+    {\Large
+    \noindent
+    {\bf Kurzfassung}} \\
+    \vspace*{0.3 cm}
+
+    \noindent
+    \myAbstractDE
+
+    % Abstract
+    \cleardoublepage
+    \selectlanguage{english}
+    \vspace*{2.2 cm}
+    {\Large
+    \noindent
+    {\bf Abstract}} \\
+    \vspace*{0.3 cm}
+
+    \noindent
+    \myAbstract
+}
+
+\newcommand{\insertDocumentStart}{
+    %\frontmatter
+    \pagenumbering{roman}
+
+    % Include titlepage
+    \insertTitlePage
+    \newpage
+
+    \input{tex/declarationTUGraz.tex}
+
+    \insertListOfAcronyms
+    \newpage
+
+    \insertAbstract
+    \cleardoublepage
+
+    \selectlanguage{english}
+    \tableofcontents  
+
+    %\listoffigures 
+    %\listoftables
+        
+    \cleardoublepage
+
+    \pagestyle{headings}
+    \pagenumbering{arabic}
+}
+
+\newcommand{\insertChapter}[1]{
+    \input{./chapters/#1.tex}
+}
+
+\newcommand{\insertDocumentEnd}{
+    \cleardoublepage
+    
+    \listoffigures 
+    \listoftables
+    
+    \cleardoublepage
+    \bibliography{./references/library.bib}
+}
+
+\newcommand{\myFigure}[5]{
+    %% example:
+    %       \myFigure{} %% filename in figures folder
+    %       {width=0.5\textwidth,height=0.5\textheight} %% maximum width/height, aspect ratio will be kept
+    %       {} %% caption
+    %       {} %% optional (short) caption for list of figures
+    %       {} %% label
+    \begin{figure}[htbp]
+    \centering
+    \includegraphics[keepaspectratio,#2]{#1}
+    \caption[#4]{#3}
+    \label{fig:#5}
+    \end{figure}
+}
+
+
+\newcommand{\myDoubleFigure}[9]{
+    %% example:
+    % \myDoubleFigure{} %% filename1 in figures folder
+    %       {width=0.5\textwidth,height=0.5\textheight} %% maximum width/height, aspect ratio will be kept
+    %       {} %% label 1
+    %       {} %% filename2 in figures folder
+    %       {width=0.5\textwidth,height=0.5\textheight} %% maximum width/height, aspect ratio will be kept
+    %       {} %% label 2
+    %       {} %% caption
+    %       {} %% optional (short) caption for list of figures
+    %       {} %% label
+    \begin{figure}[htbp]%
+        \centering
+        \subfloat[#3]{
+            \label{fig:#9a} 
+            \includegraphics[#2]{#1} 
+        }%
+        \hspace{.25cm}
+        \subfloat[#6]{
+            \label{fig:#9b} 
+            \includegraphics[#5]{#4} 
+        }%
+        \caption[#8]{#7}%
+        \label{fig:#9}%
+    \end{figure}
+}

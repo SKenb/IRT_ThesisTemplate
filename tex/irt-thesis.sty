@@ -1,0 +1,132 @@
+\ProvidesPackage{./tex/irt-thesis}[2024/10/14 IRT]
+
+% Math
+\RequirePackage{amsmath}
+\RequirePackage{amssymb}
+\RequirePackage{amsfonts}
+
+% Graphic
+\RequirePackage{graphicx}
+
+% Numbers
+\RequirePackage[output-decimal-marker={,},exponent-product={\cdot}]{siunitx}
+
+% Typesetting
+\RequirePackage[shortlabels]{enumitem}
+\RequirePackage{xspace}
+\RequirePackage{bm}
+\RequirePackage{xfrac}
+
+% Common latex definitions
+
+% Product Names
+\newcommand{\Matlab}{\textsc{Matlab}\xspace}
+\newcommand{\Simulink}{\textsc{Simulink}\xspace}
+\newcommand{\Labview}{\textsc{LabView}\xspace}
+
+% Matrix and Vector
+\newcommand{\mt}[1]{\pmb{#1}}
+\newcommand{\vc}[1]{\pmb{#1}}
+
+% symbols
+\let\oldepsilon\epsilon
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\phi}{\varphi}
+\newcommand{\jw}{j \omega}
+
+% operators
+\renewcommand{\Re}[1]{\operatorname{Re}\left\{ #1 \right\}}
+\renewcommand{\Im}[1]{\operatorname{Im}\left\{ #1 \right\}}
+\newcommand{\E}[1]{\ensuremath{\operatorname{E} \left\{ {#1} \right\}}}
+\newcommand{\diag}[1]{\operatorname{diag}\left({#1}\right)}
+\DeclareMathOperator{\rank}{rang}
+\DeclareMathOperator{\spur}{spur}
+
+% FKL
+\newcommand{\deltaarc}{\Delta\operatorname{arc}}
+
+% Norms, etc.
+\newcommand{\abs}[1]{\ensuremath{\left\lvert #1 \right\rvert}}
+\newcommand{\sign}[1]{\ensuremath{\operatorname{sign}\left( {#1} \right)}}
+\newcommand{\norm}[2][]{\ensuremath{\left\lVert #2 \right\rVert_{#1}}}
+
+% differentiation
+\newcommand{\dt}[1]{\deriv{#1}{t}}
+\newcommand{\deriv}[2]{\frac{\mathrm{d} {#1}}{\mathrm{d} {#2}}}
+\newcommand{\derivk}[3]{\frac{\mathrm{d}^{#3} {#1}}{\mathrm{d} {#2}^{#3}}}
+\newcommand{\pderiv}[2]{\frac{\partial{#1}}{\partial{#2}}}
+\newcommand{\pderivk}[3]{\frac{\partial^{#3} {#1}}{\partial{#2}^{#3}}}
+
+% ceil and floor
+\newcommand{\ceil}[1]{\left\lceil{#1}\right\rceil}
+\newcommand{\floor}[1]{\left\lfloor{#1}\right\rfloor}
+
+% integration
+\newcommand{\integ}[4]{\int_{#2}^{#3}{{#4} \, \mathrm{d}{#1}}}
+\newcommand{\integeq}[4]{\int_{{#1}={#2}}^{#3}{{#4} \, \mathrm{d}{#1}}}
+
+% Roman Subscripts
+\newcommand{\sbrm}[1]{\sb{\mathrm{#1}}}
+
+% Ensuring math mode
+\newcommand{\mensuremath}[1]{\ensuremath{#1}\xspace}
+
+% German comma
+\newcommand{\comma}{\mathord,}
+
+% Shortcuts
+% Matrizen
+\def\A{\mt{A}}
+\def\B{\mt{B}}
+\def\C{\mt{C}}
+\def\D{\mt{D}}
+\def\E{\mt{E}}
+\def\F{\mt{F}}
+\def\G{\mt{G}}
+\def\H{\mt{H}}
+\def\I{\mt{I}}
+\def\J{\mt{J}}
+\def\K{\mt{K}}
+\def\L{\mt{L}}
+\def\M{\mt{M}}
+\def\N{\mt{N}}
+\def\O{\mt{O}}
+\def\P{\mt{P}}
+\def\Q{\mt{Q}}
+\def\R{\mt{R}}
+\def\S{\mt{S}}
+\def\T{\mt{T}}
+\def\U{\mt{U}}
+\def\V{\mt{V}}
+\def\W{\mt{W}}
+\def\X{\mt{X}}
+\def\Y{\mt{Y}}
+\def\Z{\mt{Z}}
+
+% Vektoren
+\def\a{\vc{a}}
+\def\b{\vc{b}}
+\def\c{\vc{c}}
+\def\d{\vc{d}}
+\def\e{\vc{e}}
+\def\f{\vc{f}}
+\def\g{\vc{g}}
+\def\h{\vc{h}}
+\def\i{\vc{i}}
+\def\j{\vc{j}}
+\def\k{\vc{k}}
+\def\l{\vc{l}}
+\def\m{\vc{m}}
+\def\n{\vc{n}}
+\def\o{\vc{o}}
+\def\p{\vc{p}}
+\def\q{\vc{q}}
+\def\r{\vc{r}}
+\def\s{\vc{s}}
+\def\t{\vc{t}}
+\def\u{\vc{u}}
+\def\v{\vc{v}}
+\def\w{\vc{w}}
+\def\x{\vc{x}}
+\def\y{\vc{y}}
+\def\z{\vc{z}}

@@ -1,0 +1,145 @@
+\chapter{Methodology}
+\label{ch:2}
+
+\lipsum[1]
+
+\section{A table}
+\label{sec:table}
+\lipsum[1]
+
+
+\begin{table}[htbp]
+	\centering
+	\captionof{table}{Constants of a system}
+	\label{table:systemConstants}
+	\begin{tabularx}{.75\textwidth}{XXX}
+        \toprule
+        Parameter & Value & Unit \\ \midrule \midrule
+        $m$ & $0.19$ & $\text{kg}$ \\ \midrule
+		$k$ & $0.2$ & $\frac{\text{kg}}{\text{s}}$ \\ \midrule
+		$c$ & $4.8398$ & $\frac{\text{N}}{\text{m}}$ \\ \bottomrule
+    \end{tabularx}
+\end{table}
+
+\section{Some equations}
+\label{sec:someEquations}
+\lipsum[1]
+
+
+\begin{align*}
+    \label{eq:system}
+	\dt{\x} &= \A \x + \b u, &
+	y &= \c^T \x + d u.
+\end{align*}
+
+\begin{equation}
+	\label{eq:equation2}
+	\begin{array}{c}
+		\left[\begin{array}{c}
+			 \x_{k+1} \\
+			 u_{k}
+			\end{array}
+		\right]
+		 = 
+		\underbrace{
+			\left[ 
+				\begin{array}{cc}
+					\A_d & \mt{\Gamma}_1(\tau_a, \tau_b) \\
+					\mt{0} &  0 \\
+				\end{array}
+			\right]
+		}_{=: \A_{\xi}(\tau_a, \tau_b)}
+		\underbrace{
+			\left[ 
+				\begin{array}{c}
+					\x_{k} \\
+					u_{k-1}
+				\end{array}
+			\right]
+		}_{=: \vc{\xi}_{k}} 
+		+
+		\underbrace{
+			\left[
+				\begin{array}{c}
+					\mt{\Gamma}_0(\tau_a, \tau_b) \\
+					1
+				\end{array}
+			\right]
+		}_{=: \b_{\xi}(\tau_a, \tau_b)} u_k ,
+		\\ \\
+		y_k = \left[ \c^T \quad 0 \right] \vc{\xi}_k ,
+	\end{array}
+\end{equation}
+
+
+\begin{equation}
+	\label{eq:discSystemLargeDelayCompact}
+	\begin{array}{c}
+		\left[\begin{array}{c}
+			\x_{k+1} \\
+			u_{k} \\
+			u_{k-1} \\
+			\vdots \\
+			u_{k-\zeta+1} \\
+			\end{array}
+		\right]
+		= 
+		\underbrace{\left[ \begin{array}{ccccc}
+			\A_d & \Gamma_{1}(\mathrm{Y}) & \hdots & \Gamma_{\zeta - 1}(\mathrm{Y}) & \Gamma_{\zeta}(\mathrm{Y}) \\
+			\mt{0} & 0 & \hdots & 0 & 0 \\
+			\mt{0} & 1 & \hdots & 0 & 0 \\
+			\vdots &  \vdots  & \ddots & \vdots & \vdots \\
+			\mt{0} & 0 & \hdots & 1 & 0 \\
+			
+		\end{array}
+		\right]}_{=: \A_{\xi}(\mathrm{Y})}
+		\underbrace{
+			\left[\begin{array}{c}
+				\x_{k} \\
+				u_{k-1} \\
+				u_{k-2} \\
+				\vdots \\
+				u_{k-\zeta} \\
+				\end{array}
+			\right]
+		}_{=: \vc{\xi}_{k}} \\ \\ \qquad \qquad 
+		+ 
+		\underbrace{
+			\left[
+				\begin{array}{c}
+					\Gamma_{0}(\mathrm{Y}) \\
+					1 \\
+					0 \\
+					\vdots \\
+					0
+				\end{array}
+			\right]
+		}_{=: \vc{b}_{\xi}(\mathrm{Y})} u_k ,
+		\\ \\
+		y_k = \left[ \c^T \quad 0 \quad 0 \quad \hdots \quad 0\right] \vc{\xi}_k .
+	\end{array}
+\end{equation}
+
+
+\newpage
+\section{Theorem}
+\label{sec:theorem}
+
+\subsection{Theorem 1}
+
+\begin{theo}[Pythagoras' theorem]{thm:pythagoras}
+	In a right triangle, the square of the hypotenuse is equal to the sum of the squares of the catheti.
+	\[a^2+b^2=c^2\]
+\end{theo}
+In mathematics, the Pythagorean theorem, also known as Pythagoras' theorem, is a relation in Euclidean geometry among the three sides of a right triangle.
+
+
+\subsection{Theorem 2 with proof}
+\begin{theo}{thm:theorem1}
+	There exist two irrational numbers $x$, $y$ such that $x^y$ is rational.
+\end{theo}
+ 
+\begin{prf}{prf:proof1}
+	If $x=y=\sqrt{2}$ is an example, then we are done; otherwise $\sqrt{2}^{\sqrt{2}}$ is irrational, in which case taking $x=\sqrt{2}^{\sqrt{2}}$ and $y=\sqrt{2}$ gives us:
+	\[\bigg(\sqrt{2}^{\sqrt{2}}\bigg)^{\sqrt{2}}=\sqrt{2}^{\sqrt{2}\sqrt{2}}=\sqrt{2}^{2}=2.\]
+\end{prf}
