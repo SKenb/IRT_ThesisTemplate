@@ -1,0 +1,139 @@
+% !TeX program = pdflatex
+
+\documentclass{standalone}
+\usepackage{pgfplots}
+\usepackage{amsmath}
+\pgfplotsset{compat=1.18}
+
+
+%% OWN DEFINES
+\pgfplotsset{
+    colormap={jet}{
+        rgb255=(0,0,131)
+        rgb255=(0,60,170)
+        rgb255=(5,255,255)
+        rgb255=(255,255,0)
+        rgb255=(250,0,0)
+        rgb255=(128,0,0)
+    },
+    dashdot/.style={
+        dash pattern=on 6pt off 3pt on 1pt off 3pt
+    },
+    skline/.style={line width=1pt},           % normale Linie
+    skThickLine/.style={line width=1.5pt},    % etwas dicker
+    skUltraThick/.style={line width=2pt},     % ersetzt ultra thick
+}
+
+\definecolor{matlab1}{rgb}{0 0.4470 0.7410}
+\definecolor{matlab2}{rgb}{0.8500 0.3250 0.0980}
+\definecolor{matlab3}{rgb}{0.9290 0.6940 0.1250}
+\definecolor{matlab4}{rgb}{0.4940 0.1840 0.5560}
+\definecolor{matlab5}{rgb}{0.4660 0.6740 0.1880}
+\definecolor{matlab6}{rgb}{0.3010 0.7450 0.9330}
+\definecolor{matlab7}{rgb}{0.6350 0.0780 0.1840}
+
+\definecolor{skGray}{rgb}{0.549 0.549 0.549}
+\definecolor{skLightGray}{rgb}{0.71 0.71 0.71}
+\definecolor{skDarkGray}{rgb}{0.369 0.369 0.369}
+\definecolor{skRed}{rgb}{0.922 0 0}
+\definecolor{skLightRed}{rgb}{1 0.45 0.45}
+\definecolor{skDarkRed}{rgb}{0.6 0 0}
+\definecolor{skGreen}{rgb}{0 0.922 0}
+\definecolor{skLightGreen}{rgb}{0.45 1 0.45}
+\definecolor{skDarkGreen}{rgb}{0 0.6 0}
+\definecolor{skBlue}{rgb}{0 0 0.922}
+\definecolor{skLightBlue}{rgb}{0.45 0.45 1}
+\definecolor{skDarkBlue}{rgb}{0 0 0.6}
+\definecolor{skOrange}{rgb}{1 0.647 0}
+\definecolor{skLightOrange}{rgb}{1 0.8 0.5}
+\definecolor{skDarkOrange}{rgb}{0.6 0.388 0}
+
+\pgfplotscreateplotcyclelist{matlabcolors}{
+    {matlab1},
+    {matlab2},
+    {matlab3},
+    {matlab4},
+    {matlab5},
+    {matlab6},
+    {matlab7}
+}
+
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+        width=8cm,
+        height=5.5cm,
+        xlabel={Time $t$ in $\mathrm{s}$},
+        ylabel={Concentration in $\frac{\mathrm{mol}}{\mathrm{L}}$},
+        ylabel near ticks,
+        axis line style={thick},
+        axis lines=left,
+        title={Effect of the number of tanks $N_{\mathrm{T}}$},
+        % Move title to the right
+        title style={at={(0.8,1.18)},anchor=north},
+        grid=both,
+        grid style={dashed,gray!30},
+        xmin=-0.5, xmax=6.2,
+        ymin=0, ymax=1.1,
+        ytick={0, 0.5, 1},
+        xtick={0, 2, 4, 6},
+        xticklabels={$0$, $T$, $2 T$, $3 T$},
+        thick,
+        legend style={at={(1.75,0.03)},anchor=south east},
+    ]
+        \addplot[black, thick, dotted] table [
+            x=time,
+            y=Cin,
+                col sep=comma
+            ] {data.csv};
+        \addlegendentry{$C_{\mathrm{in}}(t) = \sigma(t)$}
+
+        
+        \addplot[black, ultra thick, draw=matlab1] table [
+            x=time,
+            y=N1,
+            col sep=comma
+        ] {data.csv};
+        \addlegendentry{$C_{\mathrm{out}}(t) \quad N_{\mathrm{T}} = 1$}
+
+
+        \addplot[black, ultra thick, draw=matlab2] table [
+            x=time,
+            y=N2,
+            col sep=comma
+        ] {data.csv};
+        \addlegendentry{$C_{\mathrm{out}}(t) \quad N_{\mathrm{T}} = 2$}
+
+        \addplot[black, ultra thick, draw=matlab3] table [
+            x=time,
+            y=N3,
+            col sep=comma
+        ] {data.csv};
+        \addlegendentry{$C_{\mathrm{out}}(t) \quad N_{\mathrm{T}} = 5$}
+
+        \addplot[black, ultra thick, draw=matlab4] table [
+            x=time,
+            y=N4,
+            col sep=comma
+        ] {data.csv};
+        \addlegendentry{$C_{\mathrm{out}}(t) \quad N_{\mathrm{T}} = 10$}
+
+        
+        \addplot[black, ultra thick, draw=matlab5] table [
+            x=time,
+            y=N5,
+            col sep=comma
+        ] {data.csv};
+        \addlegendentry{$C_{\mathrm{out}}(t) \quad N_{\mathrm{T}} = 100$}
+
+        \addplot[black, ultra thick, dashed] table [
+            x=time,
+            y=Ninfty,
+            col sep=comma
+        ] {data.csv};
+        \addlegendentry{$C_{\mathrm{out}}(t) \quad N_{\mathrm{T}} \rightarrow \infty$}
+
+    \end{axis}
+\end{tikzpicture}
+\end{document}

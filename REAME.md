@@ -44,27 +44,43 @@ If your editor supports `latexmk`, you can also use:
 
 - `latexmk -pdf main.tex`
 
+## TikZ Image Factory Example
+
+This repository includes a standalone TikZ/PGFPlots example that can be used as a starting point for custom plots:
+
+- `figures/tikzImageFactory/plotTiSNumberSweep.tex`
+- `figures/tikzImageFactory/data.csv`
+
+The example generates a PDF plot (`plotTiSNumberSweep.pdf`) from CSV data using `pgfplots`.
+
+To rebuild this example manually:
+
+1. Change directory to `figures/tikzImageFactory`.
+2. Run `pdflatex plotTiSNumberSweep.tex`.
+
+You can adapt this workflow for other standalone TikZ figures and then include the generated PDF in your thesis chapters.
+
 ## VS Code Support (LaTeX Workshop)
 
 This template includes VS Code settings for the LaTeX Workshop extension.
 
 - Workspace settings: `.vscode/settings.json`
-- Global settings example: `.vscode/latex-workshop.global.example.json`
 
 What is configured:
 
 - Build output directory (`build/`)
-- Build on save
-- Build recipes and tools (`latexmk`, `pdflatex`, `bibtex`)
-- Clean-up file patterns
+- PDF viewer opens in VS Code tab
+- Default recipe is `heavy with shell escape`
+- Build tools: `pdflatex`, `pdflatex-escaped`, `bibtex`, `bibtex-pub`, `biber`
+- Build recipes: `lightweight`, `heavy`, `heavy with shell escape`
 
 How to select a recipe in VS Code:
 
 1. Open the Command Palette.
 2. Run `LaTeX Workshop: Build with recipe`.
-3. Select either `latexmk (pdf)` or `pdflatex -> bibtex -> pdflatex*2`.
+3. Select one of: `lightweight`, `heavy`, or `heavy with shell escape`.
 
-If you want the same setup globally for all LaTeX projects, copy the contents of `.vscode/latex-workshop.global.example.json` into your VS Code User `settings.json`.
+If you want to use the same configuration globally, copy the LaTeX Workshop keys from `.vscode/settings.json` into your VS Code User `settings.json`.
 
 ## Contributing
 

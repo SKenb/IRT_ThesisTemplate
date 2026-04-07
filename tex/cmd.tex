@@ -1,3 +1,4 @@
+%!TEX root = main.tex
 % use myCmd.tex to define your own commands
 
 \newcommand{\insertTitlePage}{
@@ -17,36 +18,24 @@
                 % Title of the thesis			
                 
                 \vfill\vfill\vfill
-                \vfill\vfill\vfill			
+                \vfill\vfill\vfill	
+                \vfill\vfill\vfill		
                 
-                \ifthenelse{\equal{\thesisType}{master}}{ 
-                    % Master
-                    {\bfseries\large{Master's Thesis}}
-                    
-                    to achieve the university degree of
-                    
-                    {Master of Science}
-                    
-                    {Master's degree programme: {\myStudies}}
-                }{
-                    % Bachelor
-                    {\bfseries\large{Bachelor's Thesis}}
-
-                    to achieve the university degree of
-                    
-                    {Bachelor of Science}
-                    
-                    {Bachelor's degree programme: {\myStudies}}
-                }
      
+                % PhD Thesis
+                %{\bfseries\large{DOCTORAL THESIS}}
+                {\bfseries DOCTORAL THESIS}\\
+                to achieve the university degree of
+                
+                {Doktor der technischen Wissenschaften}
+                
+                
                             
                 \vfill\vfill\vfill			
                 
-                submitted to
-                
-                \vfill
-                
-                {\bfseries\large{Graz University of Technology}}			
+                submitted to \\
+                %{\bfseries\large{Graz University of Technology}}
+                {\bfseries Graz University of Technology}			
                 
                 \vfill\vfill\vfill			
                 
@@ -59,7 +48,7 @@
                 {Institute of Automation and Control}\\
                 Head: {Univ.-Prof.\,Dipl-Ing.\,Dr.techn.~Markus Reichhartinger}\\
                 
-                \vfill
+                \vfill\vfill\vfill
                 
                 \includegraphics[width=20mm]{IRT_Logo.png}
                 
@@ -112,7 +101,8 @@
     \insertTitlePage
     \newpage
 
-    \input{tex/declarationTUGraz.tex}
+    % No longer relevant
+    %\input{tex/declarationTUGraz.tex}
 
     \insertListOfAcronyms
     \newpage
