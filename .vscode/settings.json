@@ -86,5 +86,5 @@
             }
     ],
     "latex-workshop.view.pdf.viewer": "tab",
-    "latex-workshop.latex.recipe.default": "irt-thesis"
+    "latex-workshop.latex.recipe.default": "irt-thesis-phd"
 }

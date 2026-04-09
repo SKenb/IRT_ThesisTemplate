@@ -1,6 +1,6 @@
 # IRT Thesis Template
 
-LaTeX thesis template for IRT projects with a structured chapter layout, reusable configuration files, and bibliography support.
+LaTeX thesis template (Version: VB 1.0.5.1) for IRT projects with a structured chapter layout, reusable configuration files, and bibliography support.
 
 ## Overview
 
@@ -95,3 +95,6 @@ Please submit changes via Pull Request here:
 
 - Keep generated files inside `build/` if you use a build directory workflow.
 - Prefer adding custom commands and definitions in `tex/myCmd.tex` and related config files instead of directly in chapter content.
+
+
+## TODO
