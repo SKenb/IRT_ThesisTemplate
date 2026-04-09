@@ -40,6 +40,24 @@
            "name": "biber",
             "command": "biber",
             "args": ["--input-directory=build", "--output-directory=build", "%DOCFILE%"]
+        },
+        {
+            "name": "bibtexmy",
+            "command": "bibtex",
+            "args": [
+            "my",
+            "-terse"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtexgeneral",
+            "command": "bibtex",
+            "args": [
+            "general",
+            "-terse"
+            ],
+            "env": {}
         }
     ],
 
@@ -53,10 +71,20 @@
                 "tools": ["pdflatex"]
             },
             {
-                "name": "heavy with shell escape",
+                "name": "irt-thesis",
                 "tools": ["pdflatex-escaped", "bibtex", "pdflatex-escaped", "pdflatex-escaped"]
+            },
+            {
+                "name": "irt-thesis-phd",
+                "tools": [
+                "pdflatex",
+                "bibtexgeneral",
+                "bibtexmy",
+                "pdflatex",
+                "pdflatex"
+                ]
             }
     ],
     "latex-workshop.view.pdf.viewer": "tab",
-  "latex-workshop.latex.recipe.default": "heavy with shell escape"
+    "latex-workshop.latex.recipe.default": "irt-thesis-phd"
 }

@@ -4,7 +4,8 @@
 \label{ch:1}
 
 Content of the Introduction. 
-The Introduction~\ref{ch:1} holds a figure~\ref{fig:labelFigure1}, a figure~\ref{fig:labelFigure2AB} and cites something \cite{general}{SampleRef2024}.
+The Introduction~\ref{ch:1} holds a figure~\ref{fig:labelFigure1}, a figure~\ref{fig:labelFigure2AB} and cites something 
+\ifthenelse{\equal{\thesisType}{PhD}}{\cite{general}{SampleRef2024}}{\cite{SampleRef2024}}.
 Afterwards it continues with chapter~\ref{ch:2}.
 The \ac{NASA} was founded in 1958. The \ac{NASA} is known for its space missions.
 Use the command \textit{\textbackslash myTODO} to mark something that needs to be done, e.g., \myTODO{Add more content here.}
@@ -43,6 +44,8 @@ Use the command \textit{\textbackslash myTODO} to mark something that needs to b
 
 
 
-\nocite{my}{P1,P2}
-\bibliographystyle{my}{./references/publist}
-\bibliography{my}{./references/publist.bib}{\Large List of Publications}
+\ifthenelse{\equal{\thesisType}{PhD}}{
+    \nocite{my}{P1,P2}
+    \bibliographystyle{my}{./references/publist}
+    \bibliography{my}{./references/publist.bib}{\Large List of Publications}
+}{}

@@ -70,9 +70,10 @@ What is configured:
 
 - Build output directory (`build/`)
 - PDF viewer opens in VS Code tab
-- Default recipe is `heavy with shell escape`
+- Default recipe is `irt-thesis`
+- If your thesis type is set to PhD, use the recipe `irt-thesis-phd` (support for multiple bib files)
 - Build tools: `pdflatex`, `pdflatex-escaped`, `bibtex`, `bibtex-pub`, `biber`
-- Build recipes: `lightweight`, `heavy`, `heavy with shell escape`
+- Build recipes: `lightweight`, `heavy`, `irt-thesis`, `irt-thesis-phd`
 
 How to select a recipe in VS Code:
 

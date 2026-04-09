@@ -250,8 +250,13 @@
     %\listoftables
     
     %\cleardoublepage
-    \bibliographystyle{general}{IEEEtran}
-    \bibliography{general}{./references/library.bib}{References}
+    \ifthenelse{\equal{\thesisType}{PhD}}{
+        \bibliographystyle{general}{IEEEtran}
+        \bibliography{general}{./references/library.bib}{References}
+    }{
+        \bibliographystyle{IEEEtran}
+        \bibliography{./references/library.bib}
+    }
 }
 
 \newcommand{\myFigure}[5]{

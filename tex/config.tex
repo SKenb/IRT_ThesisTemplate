@@ -27,9 +27,12 @@
 \usepackage{ifthen}
 \usepackage{acro}
 
-\usepackage{multibbl}
-\newbibliography{my}
-\newbibliography{general}
+
+\ifthenelse{\equal{\thesisType}{PhD}}{
+    \usepackage{multibbl}
+    \newbibliography{my}
+    \newbibliography{general}
+}{}
 
 
 \graphicspath{{figures/}}
