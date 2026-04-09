@@ -2,10 +2,18 @@
 
 \usepackage[english,german]{babel}
 
+\usepackage[hidelinks]{hyperref}
+
 \usepackage{./tex/irt-thesis}
+
+%\usepackage{amsmath,amssymb,amstext,amsfonts,bm,amsthm}
+
+\usepackage{fancyhdr}
+
 
 \usepackage{subfloat}
 \usepackage{subcaption}
+
 
 \usepackage{booktabs}
 \usepackage{tabularx}
@@ -19,12 +27,20 @@
 \usepackage{ifthen}
 \usepackage{acro}
 
+\usepackage{multibbl}
+\newbibliography{my}
+\newbibliography{general}
+
+
 \graphicspath{{figures/}}
 
 
-\bibliographystyle{IEEEtran}
-\setlength{\textwidth}{15 true cm}
-\setlength{\textheight}{22 true cm}
-\oddsidemargin  0.5 cm
-\evensidemargin 0.5 cm
+%\setlength{\textwidth}{15 true cm}
+%\setlength{\textheight}{22 true cm}
+\setlength{\textwidth}{15.5 true cm}  %15
+\setlength{\textheight}{23.5 true cm} %22
+%\oddsidemargin  0.5 cm
+%\evensidemargin 0.5 cm
+\oddsidemargin  0.7cm%0.4 cm
+\evensidemargin -0.3cm%-0.5 cm
 \topmargin      0 cm
